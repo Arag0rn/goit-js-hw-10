@@ -1,12 +1,11 @@
 import SlimSelect from 'slim-select'
-import axios from "axios";
 import {fetchBreeds, fetchCatByBreed} from "./cat-api"
 import { Report } from 'notiflix/build/notiflix-report-aio'
 
 
 const selectContainer = document.querySelector(".breed-select")
 const catCont = document.querySelector(".cat-info")
-axios.defaults.headers.common["x-api-key"] = "live_lpwpZWksmtNXBXU5NXMmT4ZRD92YVCzjJXLwENyFq6PLt8ck7iVRNrD8T2Z4ZHlI";
+
 
 selectContainer.addEventListener("change", onSelect)
 
@@ -44,4 +43,3 @@ function createSelect (arr){
      <p class="origin">${origin}</p></div>`}).join('')
  }
 
- 
