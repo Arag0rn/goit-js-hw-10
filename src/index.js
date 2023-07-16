@@ -5,22 +5,17 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio'
 
 
 const selectContainer = document.querySelector(".breed-select")
-const catCont = document.querySelector(".cat-info")
-selectContainer.style.visibility = "hidden"
-
+const catCont = document.querySelector(".cat-info");
 selectContainer.addEventListener("change", onSelect)
-
-
 
 fetchBreeds()
 .then(data => {selectContainer.innerHTML = createSelect(data);
-new SlimSelect({
+selectContainer.style.visibility = "visible";
+  new SlimSelect({
     select: ".breed-select",
   })
 })
-.finally(()=>Loading.remove(),
-selectContainer.style.visibility = "visible"
-)
+.finally(()=>Loading.remove())
 
 function onSelect(e) {
     const breedId = e.currentTarget.value;

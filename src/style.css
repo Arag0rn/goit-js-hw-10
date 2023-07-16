@@ -20,5 +20,6 @@ img{
 
 .breed-select {
     width: 500px;
+    visibility: hidden;
 }
 
