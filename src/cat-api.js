@@ -5,7 +5,13 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio'
 axios.defaults.headers.common["x-api-key"] = "live_lpwpZWksmtNXBXU5NXMmT4ZRD92YVCzjJXLwENyFq6PLt8ck7iVRNrD8T2Z4ZHlI";
 
 
+const selectContainer = document.querySelector(".breed-select")
+selectContainer.style.visibility = "hidden"
+
+
+
 function fetchBreeds(){
+  Loading.arrows()
     return axios.get(`${BASE_URL}${END_POINT}`)
      .then(response =>{
       if(response.status !== 200) {
@@ -24,8 +30,7 @@ function fetchBreeds(){
         throw new Error (response.data )
       }
       return response.data})
-      .catch(err => console.log(err))
-      .finally(()=>Loading.remove())
+    
   }
 
 
